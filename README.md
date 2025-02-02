@@ -70,8 +70,10 @@ We need **your help** to refine the fan configuration! If you own an **Acer Nitr
 🛠️ **Want to tweak settings?** Fork this repo and experiment!
 
 ---
+
 🔥 **Let's fix this together and keep our Nitro cool!**  
-```
+
+---
 
 ### 🌎 Next Steps:  
 1️⃣ **Create a new repository on GitHub** (e.g., `NBFC-Acer-Nitro-AN517-54`).  
