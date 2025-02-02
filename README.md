@@ -1,77 +1,84 @@
-# NBFC-Acer-Nitro-AN517-54
+# NBFC Configuration for Acer Nitro AN517-54  
+📢 **Looking for contributors!** Help us fine-tune the fan control for this laptop model.
 
-This repository contains the **NBFC (Notebook Fan Control)** configuration for the **Acer Nitro AN517-54** running on Linux.
+## ❓ Why this repo?  
+The **Acer Nitro AN517-54** is not officially supported by NBFC. Many users struggle with overheating issues because fan speeds do not adjust properly on Linux.  
 
-## 📌 Purpose
-- Enable manual and automatic fan control for the **Acer Nitro AN517-54**.
-- Provide a community-driven configuration file for better fan speed management.
-- Reduce overheating issues by fine-tuning the fan speed.
+This repository is an attempt to create a working **NBFC (Notebook Fan Control) configuration** for this model, with the help of the community.
 
-## 🚀 Installation & Usage
+## 🔍 Current Issues  
+- No official NBFC config for this model.
+- Some configurations from similar models (**AN515-51, AN515-57, AN515-58, Predator G3-572**) work partially but have inconsistencies.
+- Fan speeds do not ramp up properly under load.
+- Manually setting fan speed sometimes fails or behaves erratically.
+
+## 🚀 Installation & Testing  
 
 ### 1️⃣ Install NBFC for Linux  
-Ensure you have **nbfc-linux** installed. If not, install it using:  
-
 ```sh
 yay -S nbfc-linux
 ```
-
-Or, manually clone and install:  
-
+Or manually:  
 ```sh
 git clone https://github.com/nbfc-linux/nbfc-linux.git
 cd nbfc-linux
 make && sudo make install
 ```
 
-### 2️⃣ Add the Configuration File  
-Copy the **`Acer Nitro AN517-54.json`** file to the NBFC configurations directory:  
-
+### 2️⃣ Copy the Config File  
 ```sh
-sudo cp "Acer Nitro AN517-54.json" /usr/share/nbfc/configs/
+sudo cp "configs/Acer Nitro AN517-54.json" /usr/share/nbfc/configs/
 ```
 
-### 3️⃣ Apply the Configuration  
-Set the profile for your laptop:  
-
+### 3️⃣ Select and Start NBFC  
 ```sh
 sudo nbfc config -s "Acer Nitro AN517-54"
-```
-
-Then, start the NBFC service:  
-
-```sh
 sudo systemctl enable --now nbfc.service
 ```
 
-### 4️⃣ Adjust Fan Speed  
-You can manually set the fan speed percentage:  
-
+### 4️⃣ Manually Set Fan Speed  
 ```sh
 sudo nbfc set -s 100   # 100% fan speed
-sudo nbfc set -s 50    # 50% fan speed
-sudo nbfc set -s 0     # Turn off fans (not recommended)
+sudo nbfc status       # Check current speed
 ```
 
-To check the current status:  
+---
 
-```sh
-sudo nbfc status
+## 🔧 **How You Can Help**
+We need **your help** to refine the fan configuration! If you own an **Acer Nitro AN517-54**, you can:  
+✅ **Test different configs** from similar models (AN515-57, Predator G3-572, etc.).  
+✅ **Edit `Acer Nitro AN517-54.json`** to improve fan behavior.  
+✅ **Share your logs & experiences** in the Issues tab.  
+
+---
+
+## 📜 Current Configurations
+| Model Tested         | Works? | Issues |
+|----------------------|--------|--------|
+| AN515-57            | ❌ No  | Fans speed up/down erratically |
+| AN515-51            | ✅ Yes | Runs stable, but speed caps too low |
+| Predator G3-572     | ⚠️ Partial | Might work, needs testing |
+| Custom (current)    | ❌ No  | Service doesn’t start properly |
+
+📌 **Latest attempt:** See [`configs/Acer Nitro AN517-54.json`](configs/Acer%20Nitro%20AN517-54.json)  
+
+---
+
+## 📬 Get Involved  
+💬 **Have a better config?** Open a **Pull Request**.  
+🐞 **Found issues?** Report it in **Issues**.  
+🛠️ **Want to tweak settings?** Fork this repo and experiment!
+
+---
+🔥 **Let's fix this together and keep our Nitro cool!**  
 ```
 
-## 🛠 Troubleshooting  
-- If the service doesn’t start, check logs with:  
+---
 
-```sh
-sudo journalctl -u nbfc.service --no-pager | tail -n 50
-```
+### 🌎 Next Steps:  
+1️⃣ **Create a new repository on GitHub** (e.g., `NBFC-Acer-Nitro-AN517-54`).  
+2️⃣ **Upload your current configuration file (`Acer Nitro AN517-54.json`)** even if it’s not working.  
+3️⃣ **Add the README** (use the markdown above).  
+4️⃣ **Share your repo link on forums, Reddit, and GitHub discussions** related to Linux on Acer Nitro laptops.  
 
-- If fans do not respond, ensure `thermald` or `tlp` are not conflicting with NBFC. You may need to disable them:  
-
-```sh
-sudo systemctl stop thermald
-sudo systemctl stop tlp
-```
-
-## 🤝 Contribute  
-If you test this configuration and find improvements, feel free to submit a **Pull Request** or create an **Issue**.
+This way, **other users with the same laptop model can contribute** and help you get a working NBFC config! 🚀
