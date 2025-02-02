@@ -42,15 +42,11 @@ sudo nbfc set -s 100   # 100% fan speed
 sudo nbfc status       # Check current speed
 ```
 
----
-
 ## 🔧 **How You Can Help**
 We need **your help** to refine the fan configuration! If you own an **Acer Nitro AN517-54**, you can:  
 ✅ **Test different configs** from similar models (AN515-57, Predator G3-572, etc.).  
 ✅ **Edit `Acer Nitro AN517-54.json`** to improve fan behavior.  
 ✅ **Share your logs & experiences** in the Issues tab.  
-
----
 
 ## 📜 Current Configurations
 | Model Tested         | Works? | Issues |
@@ -62,23 +58,15 @@ We need **your help** to refine the fan configuration! If you own an **Acer Nitr
 
 📌 **Latest attempt:** See [`configs/Acer Nitro AN517-54.json`](configs/Acer%20Nitro%20AN517-54.json)  
 
----
-
 ## 📬 Get Involved  
 💬 **Have a better config?** Open a **Pull Request**.  
 🐞 **Found issues?** Report it in **Issues**.  
 🛠️ **Want to tweak settings?** Fork this repo and experiment!
 
----
-
 🔥 **Let's fix this together and keep our Nitro cool!**  
-
----
 
 ### 🌎 Next Steps:  
 1️⃣ **Create a new repository on GitHub** (e.g., `NBFC-Acer-Nitro-AN517-54`).  
 2️⃣ **Upload your current configuration file (`Acer Nitro AN517-54.json`)** even if it’s not working.  
 3️⃣ **Add the README** (use the markdown above).  
-4️⃣ **Share your repo link on forums, Reddit, and GitHub discussions** related to Linux on Acer Nitro laptops.  
-
-This way, **other users with the same laptop model can contribute** and help you get a working NBFC config! 🚀
+4️⃣ **Share your repo link on forums, Reddit, and GitHub discussions** related to Linux on Acer Nitro laptops.
