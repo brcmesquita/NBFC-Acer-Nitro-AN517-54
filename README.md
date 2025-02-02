@@ -1,72 +1,65 @@
 # NBFC Configuration for Acer Nitro AN517-54  
-📢 **Looking for contributors!** Help us fine-tune the fan control for this laptop model.
 
-## ❓ Why this repo?  
-The **Acer Nitro AN517-54** is not officially supported by NBFC. Many users struggle with overheating issues because fan speeds do not adjust properly on Linux.  
+📢 **Procurando colaboradores!** Precisamos de ajuda para aperfeiçoar o controle da ventoinha neste modelo de notebook.  
 
-This repository is an attempt to create a working **NBFC (Notebook Fan Control) configuration** for this model, with the help of the community.
+## ❓ Por que este repositório?  
+O **Acer Nitro AN517-54** não possui suporte oficial no **NBFC (Notebook Fan Control)**, e muitos usuários enfrentam problemas de superaquecimento porque as ventoinhas não ajustam corretamente no Linux.  
 
-## 🔍 Current Issues  
-- No official NBFC config for this model.
-- Some configurations from similar models (**AN515-51, AN515-57, AN515-58, Predator G3-572**) work partially but have inconsistencies.
-- Fan speeds do not ramp up properly under load.
-- Manually setting fan speed sometimes fails or behaves erratically.
+Este repositório é um esforço para criar uma configuração funcional do NBFC para esse modelo, contando com a colaboração da comunidade.  
 
-## 🚀 Installation & Testing  
+## 🔍 Testes realizados  
+Foram testadas configurações baseadas nos seguintes modelos:  
 
-### 1️⃣ Install NBFC for Linux  
+| Modelo Testado       | Funcionou? | Observações |
+|----------------------|------------|-------------|
+| **AN515-51**        | ❌ Não      | Não aceita comandos corretamente |
+| **AN515-57**        | ⚠️ Parcial  | Comportamento inconsistente |
+| **AN515-58**        | ⚠️ Parcial  | Comportamento inconsistente |
+| **Acer G3 Predator**| ❌ Não      | Não percebi se funcionou |
+| **AN715-51**        | ⚠️ Parcial  | **Funcionou inicialmente**, aceitando comandos de velocidade manual, mas parou após reiniciar. Não testei se a velocidade aumentaria com o aquecimento da CPU ou GPU |
+
+📌 **Conclusão até agora:** A configuração baseada no **AN715-51** foi a única que apresentou algum sucesso, mas ainda precisa ser ajustada para funcionar de forma estável.  
+
+## 🚀 Como instalar e testar  
+
+### 1️⃣ Instale o NBFC para Linux no Arch Linux  
 ```sh
 yay -S nbfc-linux
 ```
-Or manually:  
+Ou manualmente:  
 ```sh
 git clone https://github.com/nbfc-linux/nbfc-linux.git
 cd nbfc-linux
 make && sudo make install
 ```
 
-### 2️⃣ Copy the Config File  
+### 2️⃣ Copie o arquivo de configuração  
 ```sh
 sudo cp "configs/Acer Nitro AN517-54.json" /usr/share/nbfc/configs/
 ```
 
-### 3️⃣ Select and Start NBFC  
+### 3️⃣ Selecione e inicie o NBFC  
 ```sh
 sudo nbfc config -s "Acer Nitro AN517-54"
 sudo systemctl enable --now nbfc.service
 ```
 
-### 4️⃣ Manually Set Fan Speed  
+### 4️⃣ Ajuste manualmente a velocidade das ventoinhas  
 ```sh
-sudo nbfc set -s 100   # 100% fan speed
-sudo nbfc status       # Check current speed
+sudo nbfc set -s 100   # Define a velocidade para 100%
+sudo nbfc status       # Verifica o status atual
 ```
 
-## 🔧 **How You Can Help**
-We need **your help** to refine the fan configuration! If you own an **Acer Nitro AN517-54**, you can:  
-✅ **Test different configs** from similar models (AN515-57, Predator G3-572, etc.).  
-✅ **Edit `Acer Nitro AN517-54.json`** to improve fan behavior.  
-✅ **Share your logs & experiences** in the Issues tab.  
+## 🔧 Como você pode ajudar  
+Se você tem um **Acer Nitro AN517-54**, sua ajuda pode ser essencial!  
 
-## 📜 Current Configurations
-| Model Tested         | Works? | Issues |
-|----------------------|--------|--------|
-| AN515-57            | ❌ No  | Fans speed up/down erratically |
-| AN515-51            | ✅ Yes | Runs stable, but speed caps too low |
-| Predator G3-572     | ⚠️ Partial | Might work, needs testing |
-| Custom (current)    | ❌ No  | Service doesn’t start properly |
+✅ **Teste diferentes configurações**, especialmente a baseada no **AN715-51**.  
+✅ **Edite `Acer Nitro AN517-54.json`** e tente ajustar o comportamento das ventoinhas.  
+✅ **Relate suas experiências** e logs na aba de Issues.  
 
-📌 **Latest attempt:** See [`configs/Acer Nitro AN517-54.json`](configs/Acer%20Nitro%20AN517-54.json)  
+## 📬 Contribua com o projeto  
+💬 **Tem uma configuração melhor?** Envie um **Pull Request**.  
+🐞 **Encontrou problemas?** Abra um **Issue** e compartilhe detalhes.  
+🛠️ **Quer testar novas configurações?** Faça um fork e experimente!  
 
-## 📬 Get Involved  
-💬 **Have a better config?** Open a **Pull Request**.  
-🐞 **Found issues?** Report it in **Issues**.  
-🛠️ **Want to tweak settings?** Fork this repo and experiment!
-
-🔥 **Let's fix this together and keep our Nitro cool!**  
-
-### 🌎 Next Steps:  
-1️⃣ **Create a new repository on GitHub** (e.g., `NBFC-Acer-Nitro-AN517-54`).  
-2️⃣ **Upload your current configuration file (`Acer Nitro AN517-54.json`)** even if it’s not working.  
-3️⃣ **Add the README** (use the markdown above).  
-4️⃣ **Share your repo link on forums, Reddit, and GitHub discussions** related to Linux on Acer Nitro laptops.
+🔥 **Vamos resolver esse problema juntos e manter nossos Nitro mais frios!**  
